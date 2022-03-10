@@ -29,6 +29,7 @@ class Register extends StatelessWidget {
                               child: Text(
                                 'Regester',
                                 style: TextStyle(
+                                  fontFamily: 'Pacifico',
                                   fontSize: 30,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.blue[600],
@@ -57,7 +58,6 @@ class Register extends StatelessWidget {
                       ),
                       fillColor: Color(0xffE1E8FB),
                       filled: true,
-                      suffixIcon: Icon(Icons.person),
                       hintText: 'Username',
                       hintStyle: TextStyle(
                         fontSize: 23,
@@ -83,11 +83,12 @@ class Register extends StatelessWidget {
                       //Color(0xffD6DEF5),
                       fillColor: Color(0xffE1E8FB),
                       filled: true,
-                      suffixIcon: Icon(Icons.email),
+
                       hintText: 'E-mail',
+
                       hintStyle: TextStyle(
                         fontSize: 23,
-                        color: Colors.black,
+                        //color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

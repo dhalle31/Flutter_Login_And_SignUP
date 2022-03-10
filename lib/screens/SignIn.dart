@@ -17,7 +17,7 @@ class SignIn extends StatelessWidget {
                 ),
                 Container(
                   child: Image(
-                    image: AssetImage('images/SignIn.png'),
+                    image: AssetImage('images/login.webp'),
                   ),
                 ),
                 Row(
