@@ -20,11 +20,23 @@ class LoginPage extends StatelessWidget {
           ),
           Container(
             child: Text(
-              'Jamhuriya University of Scines & Technology ( JUST ) ',
+              'JTech ',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: 'Pacifico',
-                fontSize: 23,
+                fontSize: 30,
+                color: Color(0xffEE4062),
+              ),
+            ),
+          ),
+          Container(
+            child: Text(
+              'Jamhuriya Technology Solutions ',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: 'Pacifico',
+                fontSize: 30,
+                color: Color(0xff3C3B59),
               ),
             ),
           ),
@@ -61,6 +73,7 @@ class LoginPage extends StatelessWidget {
                         child: SignIn()));
               },
               style: ElevatedButton.styleFrom(
+                primary: Color(0xff3C3B59),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -75,6 +88,8 @@ class LoginPage extends StatelessWidget {
                   fontSize: 35,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 1.5,
+                  // color: Color(0xffEE4062),
+                  color: Color(0xffffffffff),
                 ),
               ),
             ),
@@ -88,7 +103,7 @@ class LoginPage extends StatelessWidget {
             width: double.infinity,
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
-                side: BorderSide(width: 3, color: Colors.blueAccent),
+                side: BorderSide(width: 3, color: Color(0xffEE4062)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30),
@@ -112,7 +127,7 @@ class LoginPage extends StatelessWidget {
                   fontSize: 35,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 1.5,
-                  color: Colors.blue,
+                  color: Color(0xff3C3B59),
                 ),
               ),
             ),
