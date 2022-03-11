@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loging_page/screens/Regester.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -157,14 +158,17 @@ class SignIn extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {
                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => Register(),
-                              ),
-                            );
+                                context,
+                                PageTransition(
+                                    childCurrent: this,
+                                    duration: Duration(milliseconds: 600),
+                                    reverseDuration:
+                                        Duration(milliseconds: 600),
+                                    type: PageTransitionType.bottomToTop,
+                                    child: Register()));
                           },
                           child: Text(
-                            'Sign Up',
+                            ' Register ',
                             style: TextStyle(
                               fontSize: 18,
                               color: Colors.blue[600],

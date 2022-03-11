@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loging_page/screens/Regester.dart';
 import 'package:loging_page/screens/SignIn.dart';
+import 'package:page_transition/page_transition.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -51,11 +52,13 @@ class LoginPage extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => SignIn(),
-                  ),
-                );
+                    context,
+                    PageTransition(
+                        childCurrent: this,
+                        duration: Duration(milliseconds: 600),
+                        reverseDuration: Duration(milliseconds: 600),
+                        type: PageTransitionType.leftToRight,
+                        child: SignIn()));
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -94,11 +97,13 @@ class LoginPage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => Register(),
-                  ),
-                );
+                    context,
+                    PageTransition(
+                        childCurrent: this,
+                        duration: Duration(milliseconds: 600),
+                        reverseDuration: Duration(milliseconds: 600),
+                        type: PageTransitionType.rightToLeft,
+                        child: Register()));
               },
               child: Text(
                 'Sign Up',
