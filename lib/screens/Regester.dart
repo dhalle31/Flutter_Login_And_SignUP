@@ -18,6 +18,7 @@ class _RegisterState extends State<Register> {
       key: _formkey,
       child: Scaffold(
         body: SingleChildScrollView(
+          reverse: true,
           child: Stack(
             children: [
               Column(

@@ -15,6 +15,7 @@ class LoginPage extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 40),
             child: Image(
+              height: 360,
               image: AssetImage('images/intro.png'),
             ),
           ),
@@ -56,7 +57,6 @@ class LoginPage extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Spacer(),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 12.0),
             height: 65,
