@@ -12,20 +12,21 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
-    //final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
+    // final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     bool _obscureText = true;
     final _formkey = GlobalKey<FormState>();
     return Form(
       key: _formkey,
-      child: SingleChildScrollView(
-        child: Scaffold(
-          body: Stack(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Stack(
             children: [
               Column(
                 children: [
                   SizedBox(
                     height: 30,
                   ),
+
                   Container(
                     child: Image(image: AssetImage('images/re.webp')),
                   ),
