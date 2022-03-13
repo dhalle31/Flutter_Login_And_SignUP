@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loging_page/screens/Regester.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -85,7 +86,7 @@ class SignIn extends StatelessWidget {
                         fillColor: Color(0xffE1E8FB),
                         filled: true,
                         hintText: 'Username Or E-mail',
-                        suffixIcon: Icon(Icons.person),
+                        suffixIcon: new Icon(MdiIcons.eyeOff),
                         hintStyle: TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.w500,

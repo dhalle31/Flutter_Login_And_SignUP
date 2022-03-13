@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loging_page/screens/SignIn.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -146,12 +147,15 @@ class _RegisterState extends State<Register> {
                         suffixIcon: InkWell(
                           onTap: () {
                             setState(() {
-                              _obscureText = !_obscureText;
+                              _obscureText != _obscureText;
                             });
                           },
-                          child: Icon(_obscureText
-                              ? Icons.visibility
-                              : Icons.visibility_off),
+                          child: new Icon(
+                            _obscureText ? MdiIcons.eye : MdiIcons.eyeOff,
+                          ),
+                          // child: Icon(_obscureText
+                          //     ? Icons.visibility
+                          //     : Icons.visibility_off),
                         ),
                         filled: true,
                         hintText: 'Password',
