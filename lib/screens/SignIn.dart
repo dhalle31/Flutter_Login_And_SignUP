@@ -24,6 +24,8 @@ class SignIn extends StatelessWidget {
                   Container(
                     child: Image(
                       image: AssetImage('images/login.webp'),
+                      height: 250,
+                      fit: BoxFit.cover,
                     ),
                   ),
                   Row(
@@ -86,7 +88,7 @@ class SignIn extends StatelessWidget {
                         fillColor: Color(0xffE1E8FB),
                         filled: true,
                         hintText: 'Username Or E-mail',
-                        suffixIcon: new Icon(MdiIcons.eyeOff),
+                        suffixIcon: new Icon(MdiIcons.email),
                         hintStyle: TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.w500,
@@ -120,6 +122,7 @@ class SignIn extends StatelessWidget {
                         ),
                         fillColor: Color(0xffE1E8FB),
                         filled: true,
+                        suffixIcon: new Icon(MdiIcons.lock),
                         hintText: 'Password',
                         hintStyle: TextStyle(
                           fontSize: 23,

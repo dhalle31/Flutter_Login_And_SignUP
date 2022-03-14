@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:loging_page/screens/SignIn.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:loging_page/Provides/RegistrationProvider.dart';
+import 'package:provider/provider.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -29,7 +31,11 @@ class _RegisterState extends State<Register> {
                   ),
 
                   Container(
-                    child: Image(image: AssetImage('images/re.webp')),
+                    child: Image(
+                      image: AssetImage('images/re.webp'),
+                      height: 250,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Container(
                     child: Row(
@@ -59,9 +65,12 @@ class _RegisterState extends State<Register> {
                   Container(
                     margin: EdgeInsets.all(14),
                     child: TextFormField(
+                      onChanged: (fullname) => context
+                          .read<ResgisterProvider>()
+                          .getFullName(fullname),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Username is required';
+                          return 'FullName is required';
                         } else {
                           return null;
                         }
@@ -78,7 +87,8 @@ class _RegisterState extends State<Register> {
                         ),
                         fillColor: Color(0xffE1E8FB),
                         filled: true,
-                        hintText: 'Username',
+                        suffixIcon: new Icon(MdiIcons.login),
+                        hintText: 'FullName',
                         hintStyle: TextStyle(
                           fontSize: 23,
                           fontWeight: FontWeight.w500,
@@ -89,9 +99,12 @@ class _RegisterState extends State<Register> {
                   Container(
                     margin: EdgeInsets.all(14),
                     child: TextFormField(
+                      onChanged: (username) => context
+                          .read<ResgisterProvider>()
+                          .getUserName(username),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'E-mail is required';
+                          return 'UserName is required';
                         } else {
                           return null;
                         }
@@ -110,9 +123,9 @@ class _RegisterState extends State<Register> {
                         //Color(0xffD6DEF5),
                         fillColor: Color(0xffE1E8FB),
                         filled: true,
-                        suffixIcon: Icon(Icons.email),
+                        suffixIcon: new Icon(MdiIcons.email),
 
-                        hintText: 'E-mail',
+                        hintText: 'Username',
 
                         hintStyle: TextStyle(
                           fontSize: 23,
@@ -125,6 +138,8 @@ class _RegisterState extends State<Register> {
                   Container(
                     margin: EdgeInsets.all(14),
                     child: TextFormField(
+                      onChanged: (value) =>
+                          context.read<ResgisterProvider>().getPassword(value),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Password is required';
@@ -150,9 +165,10 @@ class _RegisterState extends State<Register> {
                               _obscureText != _obscureText;
                             });
                           },
-                          child: new Icon(
-                            _obscureText ? MdiIcons.eye : MdiIcons.eyeOff,
-                          ),
+                          child: new Icon(MdiIcons.lock),
+                          // child: new Icon(
+                          //   _obscureText ? MdiIcons.eye : MdiIcons.eyeOff,
+                          // ),
                           // child: Icon(_obscureText
                           //     ? Icons.visibility
                           //     : Icons.visibility_off),
@@ -185,12 +201,15 @@ class _RegisterState extends State<Register> {
                       ),
                       onPressed: () {
                         if (_formkey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                  'Your Regestration succefully Compeleted'),
-                            ),
-                          );
+                          Provider.of<ResgisterProvider>(context, listen: false)
+                              .request();
+
+                          // ScaffoldMessenger.of(context).showSnackBar(
+                          //   SnackBar(
+                          //     content: Text(
+                          //         'Your Regestration succefully Compeleted'),
+                          //   ),
+                          // );
                         }
                       },
                       child: Text(

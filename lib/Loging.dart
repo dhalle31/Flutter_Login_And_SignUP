@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loging_page/screens/Regester.dart';
 import 'package:loging_page/screens/SignIn.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -63,6 +64,7 @@ class LoginPage extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
+                // Get.to(() => SignIn(), transition: Transition.zoom);
                 Navigator.push(
                     context,
                     PageTransition(
