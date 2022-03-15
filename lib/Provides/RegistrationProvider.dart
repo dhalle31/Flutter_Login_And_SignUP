@@ -1,14 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:loging_page/Constant.dart';
+
+import '../screens/SignIn.dart';
 
 class ResgisterProvider extends ChangeNotifier {
   String? _fullName;
   String? _userName;
   String? _password;
   String get name => _fullName!;
+  bool isLoading = false;
 
 // Geting User's FullName
   getFullName(String FullName) {
@@ -29,7 +33,9 @@ class ResgisterProvider extends ChangeNotifier {
   }
 
   // Send Request
-  request() async {
+  request(BuildContext context) async {
+    isLoading = true;
+    notifyListeners();
     try {
       var Data = {
         "name": _fullName,
@@ -42,12 +48,25 @@ class ResgisterProvider extends ChangeNotifier {
           body: jsonEncode(Data),
           headers: {"Content-Type": "application/json"});
       if (respnse.statusCode == 200) {
-        print("Sucess");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Successfully Registred'),
+          ),
+        );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => SignIn(),
+          ),
+        );
+        //print('Every Things Goes Ok');
       } else {
         print(respnse.body);
       }
     } catch (e) {
       print(e);
     }
+    isLoading = false;
+    notifyListeners();
   }
 }
